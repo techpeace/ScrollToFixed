@@ -8,7 +8,7 @@
  * will still move horizontally as the page is scrolled left or right. Once the
  * page has been scrolled back down passed the target position, the element will
  * be restored to its original position on the page.
- * 
+ *
  * This plugin has been tested in Firefox 3+, Google Chrome 10+, Safari 5+,
  * and Internet Explorer 8/9.
  */
@@ -71,7 +71,8 @@
             offsetTop = target.offset().top;
 
             // Capture the offset left of the target element.
-            offsetLeft = target.offset().left + (target.offset().left - target.position().left);
+            offsetLeft = target.offset().left;
+
             if (originalOffsetLeft == -1) {
                 originalOffsetLeft = offsetLeft;
             }
@@ -80,7 +81,7 @@
 
             // Set that this has been called at least once.
             isReset = true;
-            
+
             if (base.options.bottom != -1) {
                 setFixed();
             }
@@ -405,3 +406,4 @@
         });
     };
 })(jQuery);
+

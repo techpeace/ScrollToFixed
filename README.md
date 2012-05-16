@@ -17,52 +17,62 @@ This plugin has been tested in Firefox 3+, Google Chrome 10+ Safari 5+, Internet
 
 Default options:
 
-    $(document).ready(function() {
-        $('#mydiv').scrollToFixed();
-    });
+```javascript
+$(document).ready(function() {
+  $('#mydiv').scrollToFixed();
+});
+```
 
 Margin and Limit options:
 
-    $(document).ready(function() {
-        $('#cart').scrollToFixed({ marginTop: 10, limit: $($('h2')[5]).offset().top });
-    });
+```javascript
+$(document).ready(function() {
+  $('#cart').scrollToFixed({ marginTop: 10, limit: $($('h2')[5]).offset().top });
+});
+```
 
-Fixed Header and Fixed Footer with a Limit
+Fixed Header and Fixed Footer with a Limit:
 
-    // The fixed footer will go unfixed to reveal whatever is below it when scrolled
-    // past the limit.
-    $(document).ready(function() {
-        $('.header').scrollToFixed();
-        $('.footer').scrollToFixed( { bottom: 0, limit: $('.footer').offset().top } );
-    });
+```javascript
+// The fixed footer will go unfixed to reveal whatever is below it when scrolled
+// past the limit.
+$(document).ready(function() {
+  $('.header').scrollToFixed();
+  $('.footer').scrollToFixed( { bottom: 0, limit: $('.footer').offset().top } );
+});
+```
 
 Very Full Example
 
-    $(document).ready(function() {
-        $('.header').scrollToFixed({
-            preFixed: function() { $(this).find('h1').css('color', 'blue'); },
-            postFixed: function() { $(this).find('h1').css('color', ''); }
-        });
-        $('#summary').scrollToFixed({
-            marginTop: $('.header').outerHeight() + 10,
-            limit: $('.footer').offset().top - $('#summary').outerHeight() - 10,
-            zIndex: 999,
-            preFixed: function() { $(this).find('.title').css('color', 'blue'); },
-            preAbsolute: function() { $(this).find('.title').css('color', 'red'); },
-            postFixed: function() { $(this).find('.title').css('color', ''); },
-            postAbsolute: function() { $(this).find('.title').css('color', ''); }
-        });
-        $('.footer').scrollToFixed( {
-            bottom: 0,
-            limit: $('.footer').offset().top,
-            preFixed: function() { $(this).find('h1').css('color', 'blue'); },
-            postFixed: function() { $(this).find('h1').css('color', ''); }
-        });
-    });
+```javascript
+$(document).ready(function() {
+  $('.header').scrollToFixed({
+    preFixed: function() { $(this).find('h1').css('color', 'blue'); },
+    postFixed: function() { $(this).find('h1').css('color', ''); }
+  });
+  $('#summary').scrollToFixed({
+    marginTop: $('.header').outerHeight() + 10,
+    limit: $('.footer').offset().top - $('#summary').outerHeight() - 10,
+    zIndex: 999,
+    preFixed: function() { $(this).find('.title').css('color', 'blue'); },
+    preAbsolute: function() { $(this).find('.title').css('color', 'red'); },
+    postFixed: function() { $(this).find('.title').css('color', ''); },
+    postAbsolute: function() { $(this).find('.title').css('color', ''); }
+  });
+   $('.footer').scrollToFixed( {
+    bottom: 0,
+    limit: $('.footer').offset().top,
+    preFixed: function() { $(this).find('h1').css('color', 'blue'); },
+    postFixed: function() { $(this).find('h1').css('color', ''); }
+  });
+});
+```
 
 Remove
 
-    $('.header').trigger('remove');
+```javascript
+  $('.header').trigger('remove');
+```
 
 ## Demos ##
 
